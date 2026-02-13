@@ -1,0 +1,104 @@
+/* Story page scoped animations */
+
+/* Typewriter cursor blink */
+.story-cursor {
+  display: inline-block;
+  width: 8px;
+  height: 1.1em;
+  background: #22d3ee;
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  animation: story-blink 1s step-end infinite;
+}
+
+@keyframes story-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Scanline overlay */
+.story-scanlines {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.03) 2px,
+    rgba(0, 0, 0, 0.03) 4px
+  );
+}
+
+/* Scroll-reveal fade-up */
+.story-reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+.story-reveal.story-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger children */
+.story-stagger > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.story-stagger.story-visible > *:nth-child(1) { transition-delay: 0ms; opacity: 1; transform: translateY(0); }
+.story-stagger.story-visible > *:nth-child(2) { transition-delay: 120ms; opacity: 1; transform: translateY(0); }
+.story-stagger.story-visible > *:nth-child(3) { transition-delay: 240ms; opacity: 1; transform: translateY(0); }
+.story-stagger.story-visible > *:nth-child(4) { transition-delay: 360ms; opacity: 1; transform: translateY(0); }
+.story-stagger.story-visible > *:nth-child(5) { transition-delay: 480ms; opacity: 1; transform: translateY(0); }
+
+/* Timeline */
+.story-timeline {
+  position: relative;
+  padding-left: 32px;
+}
+
+.story-timeline::before {
+  content: '';
+  position: absolute;
+  left: 7px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, transparent, #d97706, #d97706, transparent);
+}
+
+.story-timeline-item {
+  position: relative;
+  padding-bottom: 2rem;
+}
+
+.story-timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -29px;
+  top: 6px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #d97706;
+  box-shadow: 0 0 8px rgba(217, 119, 6, 0.5);
+}
+
+/* Pulsing scroll prompt */
+.story-scroll-prompt {
+  animation: story-pulse 2s ease-in-out infinite;
+}
+
+@keyframes story-pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+/* Glow text */
+.story-glow {
+  text-shadow: 0 0 20px rgba(34, 211, 238, 0.3), 0 0 40px rgba(34, 211, 238, 0.1);
+}

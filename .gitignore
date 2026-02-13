@@ -1,0 +1,35 @@
+# OS
+.DS_Store
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Prototype dependencies (if any)
+node_modules/
+__pycache__/
+*.pyc
+.env
+.env.local
+
+# Build artifacts
+dist/
+build/
+*.tsbuildinfo
+
+# Local dev scripts and prompts
+app/scripts/_*
+app/scripts/analyze-rounds.mjs
+app/scripts/brain-summary.ts
+app/scripts/check-bids.ts
+app/scripts/check-report-data.ts
+app/scripts/check-tables.ts
+app/scripts/list-agents.ts
+app/scripts/query-brain-data*.ts
+app/scripts/reset-policies.mjs
+app/scripts/setup-9-agents.ts
+app/scripts/test-supabase.ts
+app/brain-prompts/
+app/brain-prompts-v2/

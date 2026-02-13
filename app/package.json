@@ -1,0 +1,48 @@
+{
+  "name": "inomy-hackathon-app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 4000",
+    "build": "next build",
+    "start": "next start -p 4000",
+    "lint": "next lint",
+    "chain-sync": "tsx scripts/chain-sync.ts",
+    "agent-runtime": "tsx app/lib/agent-runtime/cli.ts",
+    "task-gen": "tsx app/scripts/task-generator.ts",
+    "test-runtime": "tsx scripts/test-runtime.ts",
+    "test:runtime": "tsx app/scripts/test-runtime-integration.ts",
+    "test-x402": "tsx scripts/test-x402-flow.ts",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.39.0",
+    "@google/generative-ai": "^0.24.1",
+"@privy-io/node": "^0.8.0",
+    "@privy-io/react-auth": "^3.13.1",
+    "@supabase/supabase-js": "^2.38.0",
+    "boring-avatars": "^2.0.4",
+    "next": "^15.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "recharts": "^3.7.0",
+    "thirdweb": "^5.118.0",
+    "viem": "^2.45.1",
+    "x402-fetch": "^1.1.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "@types/node": "^20.10.0",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "autoprefixer": "^10.4.16",
+    "eslint": "^8.56.0",
+    "eslint-config-next": "^15.0.0",
+    "postcss": "^8.4.32",
+    "tailwindcss": "^3.3.6",
+    "tsx": "^4.21.0",
+    "typescript": "^5.3.0",
+    "vitest": "^3.2.4"
+  }
+}

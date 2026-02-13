@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    @apply bg-void text-neutral-300 antialiased;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 14px;
+    letter-spacing: 0.02em;
+  }
+
+  /* Subtle scanline overlay effect */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.03) 0px,
+      rgba(0, 0, 0, 0.03) 1px,
+      transparent 1px,
+      transparent 2px
+    );
+    z-index: 9999;
+  }
+}
+
+@layer components {
+  /* Retro card - subtle border, no flashy effects */
+  .glass-card {
+    @apply bg-surface border border-neutral-800 rounded-lg;
+  }
+
+  /* Terminal-style border */
+  .terminal-border {
+    @apply border border-neutral-700 rounded-sm;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Primary button - muted amber */
+  .btn-primary {
+    @apply px-4 py-2 bg-cyber-600 text-void font-medium rounded
+           hover:bg-cyber-500 transition-colors duration-150
+           disabled:opacity-40 disabled:cursor-not-allowed
+           uppercase tracking-wider text-xs;
+  }
+
+  /* Secondary button - outline */
+  .btn-secondary {
+    @apply px-4 py-2 bg-transparent border border-neutral-600 text-neutral-300
+           font-medium rounded hover:border-neutral-500 hover:text-neutral-200
+           transition-colors duration-150 uppercase tracking-wider text-xs;
+  }
+
+  /* Ghost button */
+  .btn-ghost {
+    @apply px-3 py-1.5 bg-transparent text-neutral-400 font-medium rounded
+           hover:bg-neutral-800 hover:text-neutral-200 transition-colors duration-150
+           uppercase tracking-wider text-xs;
+  }
+
+  /* Status badges - monochrome with subtle color hints */
+  .badge-active {
+    @apply px-2 py-0.5 bg-emerald-900/30 text-emerald-500 border border-emerald-800/50
+           rounded text-xs font-medium uppercase tracking-wider;
+  }
+  .badge-warning {
+    @apply px-2 py-0.5 bg-amber-900/30 text-amber-500 border border-amber-800/50
+           rounded text-xs font-medium uppercase tracking-wider;
+  }
+  .badge-danger {
+    @apply px-2 py-0.5 bg-red-900/30 text-red-500 border border-red-800/50
+           rounded text-xs font-medium uppercase tracking-wider;
+  }
+  .badge-neutral {
+    @apply px-2 py-0.5 bg-neutral-800 text-neutral-400 border border-neutral-700
+           rounded text-xs font-medium uppercase tracking-wider;
+  }
+
+  /* Agent type badges - subtle, monochrome */
+  .badge-catalog {
+    @apply px-2 py-0.5 bg-neutral-800 text-cyber-500 border border-neutral-700
+           rounded text-xs font-medium uppercase tracking-wider;
+  }
+  .badge-review {
+    @apply px-2 py-0.5 bg-neutral-800 text-neural-500 border border-neutral-700
+           rounded text-xs font-medium uppercase tracking-wider;
+  }
+  .badge-curation {
+    @apply px-2 py-0.5 bg-neutral-800 text-neutral-300 border border-neutral-700
+           rounded text-xs font-medium uppercase tracking-wider;
+  }
+  .badge-seller {
+    @apply px-2 py-0.5 bg-neutral-800 text-cyber-400 border border-neutral-700
+           rounded text-xs font-medium uppercase tracking-wider;
+  }
+
+  /* Personality badges */
+  .badge-conservative {
+    @apply px-2 py-0.5 bg-neutral-800 text-blue-400 border border-neutral-700
+           rounded text-xs font-medium uppercase tracking-wider;
+  }
+  .badge-balanced {
+    @apply px-2 py-0.5 bg-neutral-800 text-neutral-300 border border-neutral-700
+           rounded text-xs font-medium uppercase tracking-wider;
+  }
+  .badge-aggressive {
+    @apply px-2 py-0.5 bg-neutral-800 text-orange-400 border border-neutral-700
+           rounded text-xs font-medium uppercase tracking-wider;
+  }
+  .badge-opportunistic {
+    @apply px-2 py-0.5 bg-neutral-800 text-neural-400 border border-neutral-700
+           rounded text-xs font-medium uppercase tracking-wider;
+  }
+
+  /* Live indicator - subtle pulse */
+  .live-indicator {
+    @apply relative flex h-2 w-2;
+  }
+  .live-indicator::before {
+    content: '';
+    @apply absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-50 animate-ping;
+  }
+  .live-indicator::after {
+    content: '';
+    @apply relative inline-flex rounded-full h-2 w-2 bg-emerald-500;
+  }
+
+  /* Card styles - clean, minimal */
+  .card {
+    @apply bg-surface border border-neutral-800 rounded-lg p-5;
+  }
+  .card-elevated {
+    @apply bg-elevated border border-neutral-800 rounded-lg p-4;
+  }
+  .card-hover {
+    @apply hover:border-neutral-700 transition-colors duration-150 cursor-pointer;
+  }
+
+  /* Input styles - terminal look */
+  .input {
+    @apply w-full bg-void border border-neutral-700 rounded px-3 py-2
+           text-neutral-200 placeholder-neutral-600 font-mono text-sm
+           focus:outline-none focus:border-neutral-500
+           transition-colors;
+  }
+
+  /* Stat card - minimal */
+  .stat-card {
+    @apply bg-elevated border border-neutral-800 rounded p-3;
+  }
+  .stat-label {
+    @apply text-xs text-neutral-500 uppercase tracking-wider mb-1;
+  }
+  .stat-value {
+    @apply text-lg font-medium font-mono text-neutral-200;
+  }
+  .stat-value-positive {
+    @apply text-lg font-medium font-mono text-emerald-500;
+  }
+  .stat-value-negative {
+    @apply text-lg font-medium font-mono text-red-500;
+  }
+
+  /* Progress bar - thin, clean */
+  .progress-bar {
+    @apply h-1 bg-neutral-800 rounded-full overflow-hidden;
+  }
+  .progress-bar-fill {
+    @apply h-full bg-cyber-600 rounded-full transition-all duration-500;
+  }
+
+  /* Terminal text effect */
+  .terminal-text {
+    @apply font-mono text-sm text-neutral-400;
+    text-shadow: 0 0 1px rgba(212, 160, 18, 0.3);
+  }
+
+  /* Section headers */
+  .section-header {
+    @apply text-xs uppercase tracking-widest text-neutral-500 mb-3 font-medium;
+  }
+
+  /* Retro divider */
+  .divider {
+    @apply border-t border-neutral-800 my-4;
+  }
+}
+
+/* Custom scrollbar - minimal */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #141414;
+}
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #444;
+}
