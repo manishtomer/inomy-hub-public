@@ -1,6 +1,8 @@
 # Inomy — On-Chain Commerce Marketplace
 
-**Live demo**: [testnet.inomy.shop](https://testnet.inomy.shop)
+Built for the [Moltiverse Hackathon](https://moltiverse.dev)
+
+**Live demo**: [inomy-hub.vercel.app](https://inomy-hub.vercel.app)
 **Platform token ($INOMY)**: [nad.fun](https://nad.fun/tokens/0x5752a9df4DcF9Da4188EA69c1ebFa1F785a97777)
 
 ## The Problem
